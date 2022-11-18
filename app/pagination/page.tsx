@@ -1,5 +1,7 @@
+import { redirect } from 'next/navigation';
+
 function PaginationPage() {
-  return <div>PaginationPage</div>;
+  redirect('/pagination/1');
 }
 
 export default PaginationPage;

@@ -9,13 +9,7 @@
       "mode": "auto"
     }
   ],
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "json"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "json"],
   // @see https://github.com/tailwindlabs/tailwindcss/discussions/5258#discussioncomment-1979394
   "css.lint.unknownAtRules": "ignore",
   "typescript.enablePromptUseWorkspaceTsdk": true

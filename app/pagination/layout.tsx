@@ -3,7 +3,7 @@ type PaginationLayoutProps = {
 };
 
 function PaginationLayout({ children }: PaginationLayoutProps) {
-  return <section>{children}</section>;
+  return <section className="max-w-2xl mx-auto px-6">{children}</section>;
 }
 
 export default PaginationLayout;
