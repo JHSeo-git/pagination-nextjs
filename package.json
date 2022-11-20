@@ -12,7 +12,7 @@
   "dependencies": {
     "clsx": "^1.2.1",
     "lucide-react": "^0.101.0",
-    "next": "13.0.3",
+    "next": "13.0.4",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -26,7 +26,7 @@
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.41.0",
     "eslint": "latest",
-    "eslint-config-next": "13.0.3",
+    "eslint-config-next": "13.0.4",
     "eslint-config-prettier": "latest",
     "eslint-plugin-import": "latest",
     "eslint-plugin-json-format": "latest",
