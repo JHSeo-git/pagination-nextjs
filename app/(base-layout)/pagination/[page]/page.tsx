@@ -24,7 +24,15 @@ async function PaginationPage({ params }: PaginationPageProps) {
     <>
       {posts.length > 0 ? (
         <>
-          <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="px-1 flex items-baseline justify-between">
+            <p className="font-bold">
+              posts <span className="text-primary">{pageInfo.total}</span>
+            </p>
+            <h1 className="font-bold text-right">
+              page <span className="text-primary">{page}</span>
+            </h1>
+          </div>
+          <ul className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">
             {posts.map((post) => (
               <li key={post.id}>
                 <Card title={post.title} body={post.body} href={`/posts/${post.id}`} />

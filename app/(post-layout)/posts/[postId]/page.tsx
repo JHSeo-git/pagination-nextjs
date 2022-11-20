@@ -18,10 +18,10 @@ async function PostPage({ params }: PostPageProps) {
   const post = await getPost({ id: postId });
 
   return (
-    <article className="my-10">
-      <h1 className="text-4xl font-bold text-neutral">{post.title}</h1>
-      <p className="mt-6">{post.body}</p>
-    </article>
+    <>
+      <h1 className="text-4xl font-bold">{post.title}</h1>
+      <p className="text-lg mt-6">{post.body}</p>
+    </>
   );
 }
 
