@@ -11,16 +11,15 @@ import Card, { CardSkeleton } from '../Card';
 function InfiniteScrollItems() {
   const { ref, inView } = useInView();
 
-  const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, error } =
-    useInfiniteQuery({
-      queryKey: ['infinite-scroll-items'],
-      queryFn: async ({ pageParam = 1 }) => {
-        const res = await getPosts({ page: pageParam });
+  const { data, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage } = useInfiniteQuery({
+    queryKey: ['infinite-scroll-items'],
+    queryFn: async ({ pageParam = 1 }) => {
+      const res = await getPosts({ page: pageParam });
 
-        return res;
-      },
-      getNextPageParam: (lastPage) => lastPage.pageInfo.nextPage,
-    });
+      return res;
+    },
+    getNextPageParam: (lastPage) => lastPage.pageInfo.nextPage,
+  });
 
   const posts = useMemo(() => {
     if (!data) {
@@ -42,7 +41,7 @@ function InfiniteScrollItems() {
     // only render skeletons when the first page is being fetched
     return (
       <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {Array.from({ length: 9 }).map((_, idx) => (
+        {Array.from({ length: 10 }).map((_, idx) => (
           <li key={`Initial_CardSkeleton_${idx}`}>
             <CardSkeleton />
           </li>
