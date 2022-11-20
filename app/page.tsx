@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="max-w-2xl mx-auto absolute inset-0 flex items-center justify-center">
-      <div className="w-full p-6 flex flex-col items-center">
+    <div className=" absolute inset-0 flex items-center justify-center">
+      <div className="max-w-lg mx-auto w-full p-6 flex flex-col items-center">
         <h1 className="text-2xl font-bold text-primary">Pagination examples</h1>
         <Link href="/pagination" className="cursor-pointer btn btn-block mt-6">
           페이지네이션

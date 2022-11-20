@@ -1,8 +1,13 @@
+import { sleep } from '@/lib/utils';
+
 import client from '../client';
 import type { GetPostParam, GetPostResponse, GetPostsParam, GetPostsResponse } from './posts.types';
 
 export async function getPosts({ limit = 10, page = 1 }: GetPostsParam) {
   const data = await client.get<GetPostsResponse>('/posts');
+
+  // force delay
+  await sleep(1000);
 
   const paged = data.slice((page - 1) * limit, page * limit);
 

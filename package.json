@@ -10,14 +10,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.16.1",
     "clsx": "^1.2.1",
     "lucide-react": "^0.101.0",
     "next": "13.0.4",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.1"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",

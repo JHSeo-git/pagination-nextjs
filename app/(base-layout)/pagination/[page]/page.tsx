@@ -1,5 +1,6 @@
 import Card from '@/components/Card';
 import PaginationButtons from '@/components/PaginationButtons';
+import ScrollToTop from '@/components/ScrollToTop';
 import { getPosts } from '@/lib/api/posts';
 
 interface PaginationPageProps {
@@ -20,20 +21,23 @@ async function PaginationPage({ params }: PaginationPageProps) {
   const { posts, pageInfo } = await getPosts({ page });
 
   return (
-    <article className="my-10">
+    <>
       {posts.length > 0 ? (
         <>
           <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {posts.map((post) => (
-              <Card key={post.id} title={post.title} body={post.body} href={`/posts/${post.id}`} />
+              <li key={post.id}>
+                <Card title={post.title} body={post.body} href={`/posts/${post.id}`} />
+              </li>
             ))}
           </ul>
           <PaginationButtons prevPage={pageInfo.prevPage} nextPage={pageInfo.nextPage} />
+          <ScrollToTop />
         </>
       ) : (
         <h1>Sorry, posts are empty.</h1>
       )}
-    </article>
+    </>
   );
 }
 

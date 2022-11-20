@@ -2,11 +2,13 @@ import { CardSkeleton } from '@/components/Card';
 
 function PaginationLoading() {
   return (
-    <article>
+    <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
       {Array.from({ length: 9 }).map((_, idx) => (
-        <CardSkeleton key={`CardSkeleton_${idx}`} />
+        <li key={`CardSkeleton_${idx}`}>
+          <CardSkeleton />
+        </li>
       ))}
-    </article>
+    </ul>
   );
 }
 
