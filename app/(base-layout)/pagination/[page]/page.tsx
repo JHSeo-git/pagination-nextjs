@@ -1,5 +1,6 @@
-import Card from '@/components/Card';
-import PaginationButtons from '@/components/PaginationButtons';
+import Link from 'next/link';
+
+import Card, { CardSkeleton } from '@/components/Card';
 import ScrollToTop from '@/components/ScrollToTop';
 import { getPosts } from '@/lib/api/posts';
 
@@ -35,11 +36,37 @@ async function PaginationPage({ params }: PaginationPageProps) {
           <ul className="mt-5 grid grid-cols-1 gap-6 md:grid-cols-2">
             {posts.map((post) => (
               <li key={post.id}>
-                <Card title={post.title} body={post.body} href={`/posts/${post.id}`} />
+                <Card
+                  postNumber={post.id}
+                  title={post.title}
+                  body={post.body}
+                  href={`/posts/${post.id}`}
+                />
               </li>
             ))}
           </ul>
-          <PaginationButtons prevPage={pageInfo.prevPage} nextPage={pageInfo.nextPage} />
+          <div className="mt-10 flex gap-4">
+            <div className="flex-1">
+              {pageInfo.prevPage && (
+                <Link
+                  href={`/pagination/${pageInfo.prevPage}`}
+                  className="cursor-pointer btn btn-block"
+                >
+                  Prev
+                </Link>
+              )}
+            </div>
+            <div className="flex-1">
+              {pageInfo.nextPage && (
+                <Link
+                  href={`/pagination/${pageInfo.nextPage}`}
+                  className="cursor-pointer btn btn-block"
+                >
+                  Next
+                </Link>
+              )}
+            </div>
+          </div>
           <ScrollToTop />
         </>
       ) : (
