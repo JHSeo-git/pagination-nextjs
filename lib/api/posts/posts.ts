@@ -16,7 +16,7 @@ export async function getPosts({ limit = 10, page = 1 }: GetPostsParam) {
     pageInfo: {
       total: data.length,
       prevPage: page <= 1 ? undefined : page - 1,
-      nextPage: data.length > (page + 1) * limit ? page + 1 : undefined,
+      nextPage: data.length >= (page + 1) * limit ? page + 1 : undefined,
     },
   };
 }
