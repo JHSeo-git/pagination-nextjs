@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import { getPost } from '@/lib/api/posts';
 
 type PostPageProps = {
@@ -6,13 +8,13 @@ type PostPageProps = {
 
 async function PostPage({ params }: PostPageProps) {
   if (!params.postId) {
-    return null;
+    notFound();
   }
 
   const postId = parseInt(params.postId, 10);
 
   if (isNaN(postId)) {
-    return null;
+    notFound();
   }
 
   const post = await getPost({ id: postId });

@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-import Card, { CardSkeleton } from '@/components/Card';
+import Card from '@/components/Card';
 import ScrollToTop from '@/components/ScrollToTop';
 import { getPosts } from '@/lib/api/posts';
 
@@ -10,13 +11,13 @@ interface PaginationPageProps {
 
 async function PaginationPage({ params }: PaginationPageProps) {
   if (typeof params.page !== 'string') {
-    return null;
+    notFound();
   }
 
   const page = parseInt(params.page, 10);
 
   if (isNaN(page)) {
-    return null;
+    notFound();
   }
 
   const { posts, pageInfo } = await getPosts({ page });
